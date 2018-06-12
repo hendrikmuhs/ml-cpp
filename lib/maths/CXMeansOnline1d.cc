@@ -299,7 +299,7 @@ void BICGain(maths_t::EDataType dataType,
 
         double log2piv = std::log(boost::math::double_constants::two_pi * v);
         double log2pis = std::log(boost::math::double_constants::two_pi * s);
-        double loggn = boost::math::lgamma(a) - a * std::log(b);
+        double loggn = std::lgamma(a) - a * std::log(b);
         double log2pivl =
             std::log(boost::math::double_constants::two_pi * vl / CTools::pow2(wl));
         double log2pivr =
@@ -308,8 +308,8 @@ void BICGain(maths_t::EDataType dataType,
             std::log(boost::math::double_constants::two_pi * sl / CTools::pow2(wl));
         double log2pisr =
             std::log(boost::math::double_constants::two_pi * sr / CTools::pow2(wr));
-        double loggnl = boost::math::lgamma(al) - al * std::log(bl) - std::log(wl);
-        double loggnr = boost::math::lgamma(ar) - ar * std::log(br) - std::log(wr);
+        double loggnl = std::lgamma(al) - al * std::log(bl) - std::log(wl);
+        double loggnr = std::lgamma(ar) - ar * std::log(br) - std::log(wr);
 
         for (std::size_t i = start; i < split; ++i) {
             double ni = CBasicStatistics::count(categories[i]);
